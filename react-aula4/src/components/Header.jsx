@@ -1,25 +1,27 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const HeaderContainer = styled.section`
-    & header{
+const HeaderContainer = styled.header`
+    background-color: blueviolet;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    & h1{
+        color: #FFFFFF;
+    }
+    & nav ul{
         display: flex;
-        justify-content: space-between;
-        padding: 0 60px;
-        & nav ul{
-           display: flex;
-           list-style: none;
-           gap: 26px;
-           & a{
-                text-decoration: none;
-                color: black;
-                &:hover{
-                    color: red;
-                }
-                &.active{
-                    color: red;
-                }
-           }
+        gap: 36px;
+        list-style: none;
+        & li a{
+            color: #FFFFFF80;
+            text-decoration: none;
+            font-size: 18px;
+            &:hover, &.active{
+                color: #FFFFFF;
+            }
         }
     }
 `;
@@ -27,21 +29,15 @@ const HeaderContainer = styled.section`
 const Header = () => {
     return (
         <HeaderContainer>
-            <header>
-                <h1>LOGO</h1>
-                <nav>
-                    <ul>
-                        <li>
-                            <NavLink to={"/"}>Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/produtos"}>Produtos</NavLink>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <h1>LOGO</h1>
+            <nav>
+                <ul>
+                    <li><NavLink to={"/"}>Home</NavLink></li>
+                    <li><NavLink to={"/produtos"}>Produtos</NavLink></li>
+                </ul>
+            </nav>
         </HeaderContainer>
     );
 }
- 
+
 export default Header;
